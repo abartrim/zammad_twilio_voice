@@ -2,7 +2,7 @@ const fs = require('fs');
 
 let template = {
   "name": "Twilio_Voice",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "vendor": "IT Shield LLC",
   "license": "MIT",
   "url": "https://www.myitshield.com",

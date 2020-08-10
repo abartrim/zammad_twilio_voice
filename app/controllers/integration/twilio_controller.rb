@@ -260,9 +260,12 @@ class Integration::TwilioController < ApplicationController
     #   loop: 1,
     #   url: 'https://cdn2.melodyloops.com/mp3/preview-action-mission.mp3'
     # )
+    # puts "config: #{@config_integration['outbound']}"
+    outbound_cid = @config_integration['outbound']['default_caller_id'] || ''
+    # puts "outbound_cid: #{outbound_cid}"
     resXML.dial({
       hangup_on_star: true,
-      caller_id: '16105508445'
+      caller_id: outbound_cid
     }) { |dial|
       for n in result do
         if n != from

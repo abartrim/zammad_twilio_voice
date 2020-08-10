@@ -53,6 +53,14 @@ Initial commit, still under development and not fully functional.
 To add the Integration/Package to Zammad, ensure the version is 3.3.x and upload the 'twilio_voice.szpm' file.
 See Zammad docs (https://docs.zammad.org) for adding the 'twilio_voice.szpm' file through the Settings->Packages interface.
 
+Until I figure out how to handle the precompile for the static files and a puma hot restart from the migration, you have to do a hot reload on the instance.
+
+> bundle exec rake assets:precompile; bundle exec pumactl -p PID restart
+If you are running in a docker instance, the Package files will be lost and will need to be applied again.
+You can make your own instance of the Zammad docker container adding the szpm file to the auto-install directory.
+
+ADD twilio_voice.szpm /opt/zammad/
+
 ## Screenshots
 
 TODO
