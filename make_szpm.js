@@ -1,18 +1,19 @@
 const fs = require('fs');
-
+let version = '1.0.3';
+let version_text = 'Bumping version to reload';
 let template = {
   "name": "Twilio_Voice",
-  "version": "1.0.1",
+  "version": version,
   "vendor": "IT Shield LLC",
   "license": "MIT",
   "url": "https://www.myitshield.com",
   "buildhost": "gitlab.com",
-  "builddate": "2020-10-10 10:00:00 UTC",
+  "builddate": new Date().toUTCString(),
   "change_log": [
     {
-      "version": "1.0.0",
-      "date": "2020-10-10 10:00:00 UTC",
-      "log": "Initial version."
+      "version": version,
+      "date": new Date().toUTCString(),
+      "log": version_text
     }
   ],
   "description": [

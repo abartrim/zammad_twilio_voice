@@ -1,16 +1,16 @@
 {
   "name": "Twilio_Voice",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "vendor": "IT Shield LLC",
   "license": "MIT",
   "url": "https://www.myitshield.com",
   "buildhost": "gitlab.com",
-  "builddate": "2020-10-10 10:00:00 UTC",
+  "builddate": "Sat, 12 Sep 2020 06:47:03 GMT",
   "change_log": [
     {
-      "version": "1.0.0",
-      "date": "2020-10-10 10:00:00 UTC",
-      "log": "Initial version."
+      "version": "1.0.3",
+      "date": "Sat, 12 Sep 2020 06:47:03 GMT",
+      "log": "Bumping version to reload"
     }
   ],
   "description": [
