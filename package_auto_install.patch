@@ -1,0 +1,34 @@
+diff --git a/app/models/package.rb b/app/models/package.rb
+index 48c3066c8..eb3d4c909 100644
+--- a/app/models/package.rb
++++ b/app/models/package.rb
+@@ -485,4 +485,29 @@ execute all pending package migrations at once
+
+     true
+   end
++
++  def self.auto_reinstall
++    path = "#{@@root}/auto_install/"
++    return if !File.exist?(path)
++
++    data = []
++    Dir.foreach(path) do |entry|
++      if entry =~ /\.zpm/ && entry !~ /^\./
++        data.push entry
++      end
++    end
++    data.each do |file|
++      json    = _read_file("#{path}/#{file}", true)
++      package = JSON.parse(json)
++      installed_pkg = Package.find_by(name: package['name'])
++      if installed_pkg.nil? or Gem::Version.new(installed_pkg.version) < Gem::Version.new(package["version"])
++        # install new package or newer version
++        install(string: json)
++      elsif Gem::Version.new(installed_pkg.version) == Gem::Version.new(package["version"])
++        # reinstall existing version
++        install(string: json, reinstall: true)
++      end
++    end
++    data
++  end
+ end
